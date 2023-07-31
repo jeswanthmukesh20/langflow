@@ -75,24 +75,24 @@ class ChainFrontendNode(FrontendNode):
             field.required = True
             field.show = True
             field.advanced = False
-        if field.name == "memory":
-            # field.required = False
-            field.show = True
-            field.advanced = False
-        if field.name == "verbose":
-            field.required = False
-            field.show = False
-            field.advanced = True
         if field.name == "llm":
             field.required = True
             field.show = True
             field.advanced = False
 
-        if field.name == "return_source_documents":
+        elif field.name == "memory":
+            # field.required = False
+            field.show = True
+            field.advanced = False
+        elif field.name == "return_source_documents":
             field.required = False
             field.show = True
             field.advanced = True
             field.value = True
+        elif field.name == "verbose":
+            field.required = False
+            field.show = False
+            field.advanced = True
 
 
 class SeriesCharacterChainNode(FrontendNode):

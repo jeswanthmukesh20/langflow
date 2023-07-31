@@ -35,7 +35,7 @@ class ChainCreator(LangChainTypeCreator):
             }
             from langflow.interface.chains.custom import CUSTOM_CHAINS
 
-            self.type_dict.update(CUSTOM_CHAINS)
+            self.type_dict |= CUSTOM_CHAINS
             # Filter according to settings.chains
             self.type_dict = {
                 name: chain

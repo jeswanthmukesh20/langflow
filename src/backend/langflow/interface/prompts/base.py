@@ -29,7 +29,7 @@ class PromptCreator(LangChainTypeCreator):
             # Merge CUSTOM_PROMPTS into self.type_dict
             from langflow.interface.prompts.custom import CUSTOM_PROMPTS
 
-            self.type_dict.update(CUSTOM_PROMPTS)
+            self.type_dict |= CUSTOM_PROMPTS
             # Now filter according to settings.prompts
             self.type_dict = {
                 name: prompt
