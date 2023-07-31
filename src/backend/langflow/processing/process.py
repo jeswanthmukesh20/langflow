@@ -46,14 +46,12 @@ def format_actions(actions: List[Tuple[AgentAction, str]]) -> str:
     output = []
     for action, answer in actions:
         log = action.log
-        tool = action.tool
-        tool_input = action.tool_input
         output.append(f"Log: {log}")
         if "Action" not in log and "Action Input" not in log:
-            output.append(f"Tool: {tool}")
-            output.append(f"Tool Input: {tool_input}")
-        output.append(f"Answer: {answer}")
-        output.append("")  # Add a blank line
+            tool = action.tool
+            tool_input = action.tool_input
+            output.extend((f"Tool: {tool}", f"Tool Input: {tool_input}"))
+        output.extend((f"Answer: {answer}", ""))
     return "\n".join(output)
 
 

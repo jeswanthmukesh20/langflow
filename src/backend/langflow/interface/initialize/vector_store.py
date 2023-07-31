@@ -96,7 +96,7 @@ def initialize_weaviate(class_object: Type[Weaviate], params: dict):
         client_params = {
             "url": params.get("weaviate_url"),
         }
-        client_params.update(client_kwargs)
+        client_params |= client_kwargs
         weaviate_client = weaviate.Client(**client_params)
 
         new_params = {

@@ -42,10 +42,7 @@ class EmbeddingFrontendNode(FrontendNode):
     def format_field(field: TemplateField, name: Optional[str] = None) -> None:
         FrontendNode.format_field(field, name)
         field.advanced = not field.required
-        field.show = True
-        if field.name == "headers":
-            field.show = False
-
+        field.show = field.name != "headers"
         # Format Jina fields
         EmbeddingFrontendNode.format_jina_fields(field)
         EmbeddingFrontendNode.format_openai_fields(field)

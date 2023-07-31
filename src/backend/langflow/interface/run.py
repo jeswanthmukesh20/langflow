@@ -27,7 +27,7 @@ def build_sorted_vertices_with_caching(data_graph):
     for vertex in sorted_vertices:
         vertex.build()
         if vertex.artifacts:
-            artifacts.update(vertex.artifacts)
+            artifacts |= vertex.artifacts
     return graph.build(), artifacts
 
 

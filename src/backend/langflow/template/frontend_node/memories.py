@@ -66,8 +66,7 @@ class MemoryFrontendNode(FrontendNode):
             field.field_type = "int"
             field.value = 10
             field.display_name = "Memory Size"
-        field.password = False
-        if field.name == "return_messages":
+        elif field.name == "return_messages":
             field.required = False
             field.show = True
             field.advanced = False
@@ -80,16 +79,17 @@ class MemoryFrontendNode(FrontendNode):
                 INPUT_KEY_INFO if field.name == "input_key" else OUTPUT_KEY_INFO
             )
 
-        if field.name == "memory_key":
-            field.value = "chat_history"
+        field.password = False
         if field.name == "chat_memory":
             field.show = True
             field.advanced = False
             field.required = False
-        if field.name == "url":
-            field.show = True
-        if field.name == "entity_store":
+        elif field.name == "entity_store":
             field.show = False
+        elif field.name == "memory_key":
+            field.value = "chat_history"
+        elif field.name == "url":
+            field.show = True
         if name == "ConversationEntityMemory" and field.name == "memory_key":
             field.show = False
             field.required = False
